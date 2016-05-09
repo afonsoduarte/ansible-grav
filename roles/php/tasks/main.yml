@@ -47,6 +47,16 @@
     path: /var/run/php7.0-fpm/
     state: directory
 
+- name: Create pid dir
+  file:
+    path: /var/run/php/
+    state: directory
+
+- name: Create pid file
+  file:
+    path: /var/run/php/php7.0-fpm.pid
+    state: file
+
 - name: Disable default pool
   command: mv /etc/php/7.0/fpm/pool.d/www.conf /etc/php/7.0/fpm/pool.d/www.disabled
   args:

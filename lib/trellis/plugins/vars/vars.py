@@ -21,12 +21,12 @@ class VarsModule(object):
 
     # Wrap salts and keys variables in {% raw %} to prevent jinja templating errors
     def wrap_salts_in_raw(self, host, hostvars):
-        if 'vault_wordpress_sites' in hostvars:
-            for name, site in hostvars['vault_wordpress_sites'].iteritems():
+        if 'vault_grav_sites' in hostvars:
+            for name, site in hostvars['vault_grav_sites'].iteritems():
                 for key, value in site['env'].iteritems():
                     if key.endswith(('_key', '_salt')) and not value.startswith(('{% raw', '{%raw')):
-                        hostvars['vault_wordpress_sites'][name]['env'][key] = ''.join(['{% raw %}', value, '{% endraw %}'])
-            host.vars['vault_wordpress_sites'] = hostvars['vault_wordpress_sites']
+                        hostvars['vault_grav_sites'][name]['env'][key] = ''.join(['{% raw %}', value, '{% endraw %}'])
+            host.vars['vault_grav_sites'] = hostvars['vault_grav_sites']
 
     def cli_args_vault(self):
         if self._options.ask_vault_pass:
