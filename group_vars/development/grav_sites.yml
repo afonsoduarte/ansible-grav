@@ -1,0 +1,14 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+grav_sites:
+  example.com:
+    site_hosts:
+      - example.dev
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    admin_email: admin@example.dev
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false

@@ -1,0 +1,21 @@
+---
+- name: "Grav Server: Install LEMP Stack with PHP 7.0"
+  hosts: web:&development
+  become: yes
+  remote_user: vagrant
+
+  roles:
+    - { role: common, tags: [common] }
+    - { role: fail2ban, tags: [fail2ban] }
+    - { role: ferm, tags: [ferm] }
+    - { role: ntp }
+    - { role: sshd, tags: [sshd] }
+    - { role: ssmtp, tags: [ssmtp mail] }
+    - { role: mailhog, tags: [mailhog mail] }
+    - { role: php, tags: [php] }
+    - { role: memcached, tags: [memcached] }
+    - { role: nginx, tags: [nginx] }
+    - { role: logrotate, tags: [logrotate] }
+    - { role: composer, tags: [composer] }
+    - { role: grav-setup, tags: [grav, grav-setup] }
+    - { role: grav-install, tags: [grav, grav-install] }

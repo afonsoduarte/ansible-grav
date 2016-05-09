@@ -1,0 +1,7 @@
+# Documentation: https://roots.io/trellis/docs/vault/
+
+# Variables to accompany `group_vars/development/grav_sites.yml`
+# Note: the site name (`example.com`) must match up with the site name in the above file.
+vault_grav_sites:
+  example.com:
+    admin_password: admin

@@ -1,0 +1,4 @@
+acme_tiny_challenges_directory: "{{ www_root }}/letsencrypt"
+env: development
+ferm_enabled: false
+web_user: vagrant

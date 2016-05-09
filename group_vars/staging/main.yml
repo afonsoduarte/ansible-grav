@@ -1,0 +1,1 @@
+sudoer_passwords: "{{ vault_sudoer_passwords }}" # Define this variable in group_vars/staging/vault.yml

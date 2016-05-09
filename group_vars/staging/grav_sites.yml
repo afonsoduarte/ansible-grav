@@ -1,0 +1,17 @@
+# Documentation: https://roots.io/trellis/docs/remote-server-setup/
+# `grav_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/staging/vault.yml
+
+grav_sites:
+  example.com:
+    site_hosts:
+      - staging.example.com
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    repo: git@github.com:example/example.com.git # replace with your Git repo URL
+    repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
+    branch: master
+    ssl:
+      enabled: false
+      provider: letsencrypt
+    cache:
+      enabled: false

@@ -1,0 +1,10 @@
+composer_keep_updated: true
+composer_global_packages:
+ - { name: hirak/prestissimo }
+apt_cache_valid_time: 86400
+default_timezone: Etc/UTC
+www_root: /srv/www
+ip_whitelist:
+  - "{{ lookup('pipe', 'curl -4 -s https://api.ipify.org') }}"
+
+site_env: "{{ grav_env_defaults | combine(item.value.env | default({}), vault_grav_sites[item.key].env) }}"
